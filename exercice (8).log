@@ -1,0 +1,131 @@
+// V1
+function houseEnergyScore(List) {
+    let housingList = new Map(List)
+    let housingGrade = []
+    
+    for (var i = 0; i < housingList.length; i++) {
+    
+      let [HouseKey, HouseValue] = [...housingList.entries()][0];
+    
+      if (HouseValue >= 450) { return housingGrade.push([HouseKey, HouseValue, 'G']) break; }
+      if (HouseValue >= 330) { return housingGrade.push([HouseKey, HouseValue, 'F']) break; }
+      if (HouseValue >= 230) { return housingGrade.push([HouseKey, HouseValue, 'E']) break; }
+      if (HouseValue >= 150) { return housingGrade.push([HouseKey, HouseValue, 'D']) break; }
+      if (HouseValue >= 90) { return housingGrade.push([HouseKey, HouseValue, 'C']) break; }
+      if (HouseValue >= 51) { return housingGrade.push([HouseKey, HouseValue, 'B']) break; }
+      if (HouseValue >= 0) { return housingGrade.push([HouseKey, HouseValue, 'A']) break; }
+      }
+    }
+    
+
+// V2
+function houseEnergyScore(List) {
+    let housingList = new Map(List);
+    let housingGrade = [];
+
+    // Utilisation de housingList.size à la place de housingList.length
+    for (var i = 0; i < housingList.size; i++) {
+        let [HouseKey, HouseValue] = [...housingList.entries()][i];
+
+        if (HouseValue >= 450) { housingGrade.push([HouseKey, HouseValue, 'G']); }
+        else if (HouseValue > 330) { housingGrade.push([HouseKey, HouseValue, 'F']); }
+        else if (HouseValue > 230) { housingGrade.push([HouseKey, HouseValue, 'E']); }
+        else if (HouseValue > 150) { housingGrade.push([HouseKey, HouseValue, 'D']); }
+        else if (HouseValue > 90) { housingGrade.push([HouseKey, HouseValue, 'C']); }
+        else if (HouseValue > 51) { housingGrade.push([HouseKey, HouseValue, 'B']); }
+        else if (HouseValue >= 0) { housingGrade.push([HouseKey, HouseValue, 'A']); }
+    }
+
+    return housingGrade;
+}
+// PAS dans l'ordre
+
+
+// V3 
+function houseEnergyScore(List) {
+    let housingList = new Map(List);
+    let housingGrade = [];
+
+    for (var i = 0; i < housingList.size; i++) {
+        let [HouseKey, HouseValue] = [...housingList.entries()][i];
+
+        if (HouseValue >= 450) { housingGrade.splice(-7 + i, 0, [HouseKey, HouseValue, 'G']); }
+        else if (HouseValue >= 330) { housingGrade.splice(-6 + i, 0, [HouseKey, HouseValue, 'F']); }
+        else if (HouseValue >= 230) { housingGrade.splice(-5 + i, 0, [HouseKey, HouseValue, 'E']); }
+        else if (HouseValue >= 150) { housingGrade.splice(-4 + i, 0, [HouseKey, HouseValue, 'D']); }
+        else if (HouseValue >= 90) { housingGrade.splice(-3 + i, 0, [HouseKey, HouseValue, 'C']); }
+        else if (HouseValue >= 51) { housingGrade.splice(-2 + i, 0, [HouseKey, HouseValue, 'B']); }
+        else if (HouseValue >= 0) { housingGrade.splice(-1 + i, 0, [HouseKey, HouseValue, 'A']); }
+    }
+
+    return housingGrade;
+}
+// Trié mais pas comme je le pensais.
+
+// V4
+function houseEnergyScore(List) {
+    let housingList = new Map(List);
+    let housingGrade = [];
+
+    for (var i = 0; i < housingList.size; i++) {
+        let [HouseKey, HouseValue] = [...housingList.entries()][i];
+
+        if (HouseValue >= 450) { housingGrade.splice(7 - i, 0, [HouseKey, HouseValue, 'G']); }
+        else if (HouseValue >= 330) { housingGrade.splice(6 - i, 0, [HouseKey, HouseValue, 'F']); }
+        else if (HouseValue >= 230) { housingGrade.splice(5 - i, 0, [HouseKey, HouseValue, 'E']); }
+        else if (HouseValue >= 150) { housingGrade.splice(4 - i, 0, [HouseKey, HouseValue, 'D']); }
+        else if (HouseValue >= 90) { housingGrade.splice(3 - i, 0, [HouseKey, HouseValue, 'C']); }
+        else if (HouseValue >= 51) { housingGrade.splice(2 - i, 0, [HouseKey, HouseValue, 'B']); }
+        else if (HouseValue >= 0) { housingGrade.splice(1 - i, 0, [HouseKey, HouseValue, 'A']); }
+    }
+
+    return housingGrade;
+}
+
+// Caste et Loft sont intervertis ?
+
+// V5 (En realité il y en a eu plus mais bon)
+function houseEnergyScore(List) {
+    let housingList = new Map(List);
+    let housingGrade = [];
+
+    for (var i = 0; i < housingList.size; i++) {
+        let [HouseKey, HouseValue] = [...housingList.entries()][i];
+
+        if (HouseValue >= 450) { housingGrade.splice(8 - i, 0, [HouseKey, HouseValue, 'G']); }
+        else if (HouseValue >= 330) { housingGrade.splice(7 - i, 0, [HouseKey, HouseValue, 'F']); }
+        else if (HouseValue >= 230) { housingGrade.splice(6 - i, 0, [HouseKey, HouseValue, 'E']); }
+        else if (HouseValue >= 150) { housingGrade.splice(5 - i, 0, [HouseKey, HouseValue, 'D']); }
+        else if (HouseValue >= 90) { housingGrade.splice(4 - i, 0, [HouseKey, HouseValue, 'C']); }
+        else if (HouseValue >= 51) { housingGrade.splice(3 - i, 0, [HouseKey, HouseValue, 'B']); }
+        else if (HouseValue >= 0) { housingGrade.splice(1 - i, 0, [HouseKey, HouseValue, 'A']); }
+    }
+
+    return housingGrade;
+}
+
+/* displayResult(houseEnergyScore([['Log', 20], ['Villa', 149],['Flat', 212], ['Loft', 340],['Castle', 590], ['Igloo', 0], ['Hutch', 0]])); */
+
+
+// V6 - FInale
+function houseEnergyScore(List) {
+    let housingList = new Map(List);
+    let housingGrade = [];
+
+    for (var i = 0; i < housingList.size; i++) {
+        let [HouseKey, HouseValue] = [...housingList.entries()][i];
+
+        if (HouseValue >= 450) { housingGrade.splice(housingGrade.length, 0, [HouseKey, HouseValue, 'G']); }
+        else if (HouseValue >= 330) { housingGrade.splice(housingGrade.length, 0, [HouseKey, HouseValue, 'F']); }
+        else if (HouseValue >= 230) { housingGrade.splice(housingGrade.length, 0, [HouseKey, HouseValue, 'E']); }
+        else if (HouseValue >= 150) { housingGrade.splice(housingGrade.length, 0, [HouseKey, HouseValue, 'D']); }
+        else if (HouseValue >= 90) { housingGrade.splice(housingGrade.length, 0, [HouseKey, HouseValue, 'C']); }
+        else if (HouseValue >= 51) { housingGrade.splice(housingGrade.length, 0, [HouseKey, HouseValue, 'B']); }
+        else if (HouseValue >= 0) { housingGrade.splice(housingGrade.length, 0, [HouseKey, HouseValue, 'A']); }
+    }
+
+    housingGrade.sort((a, b) => a[1] - b[1]);
+    return housingGrade;
+}
+
+displayResult(houseEnergyScore([['Log', 20], ['Villa', 149], ['Flat', 212], ['Loft', 340], ['Castle', 590], ['Igloo', 0], ['Hutch', 0]]));
